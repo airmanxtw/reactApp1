@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.60.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "name": "reactapp1",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
