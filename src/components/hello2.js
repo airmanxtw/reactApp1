@@ -1,12 +1,23 @@
 import React from "react";
 class Hello2 extends React.Component {
     render() {
-        return <h1>hello2 ~ {this.state.date.toLocaleTimeString()}</h1>
+        return <h1>
+            hello2 ~ {this.state.date.toLocaleTimeString()}
+            <br />
+            {this.state.showB &&
+                <button onClick={this.sayHello}>click</button>
+            }
+        </h1>
+    }
+
+    sayHello = () => {
+        alert(this.state.date.toDateString());
     }
 
     constructor() {
         super();
-        this.state = { date: new Date() };
+        this.state = { date: new Date(), showB: false };
+        //this.sayHello = this.sayHello.bind(this);
     }
 
     componentDidMount() {
