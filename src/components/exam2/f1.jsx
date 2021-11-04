@@ -6,7 +6,7 @@ function Fun1(props) {
     };
     useEffect(() => {
         if (data.text.length > 10) {
-            setData({ text: data.text.substring(0, 9),length:data.length });
+            setData(data=>({...data, text: data.text.substring(0, 9) }));
         }
     }, [data.text]);
     return <div>
