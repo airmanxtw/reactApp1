@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 function Fun1(props) {
     const [data, setData] = useState({ text: '',length:10 });
     let input = (val) => {
-        setData({ text: val,length:data.length });
+        setData(data=>({...data, text: val }));
     };
     useEffect(() => {
         if (data.text.length > 10) {
