@@ -12,12 +12,17 @@ function AddField() {
     let del = (key) => {
         setCars(cars.filter(item => item.key != key));
     };
+    let update = (fieldNmae, index, value) => {
+        let newCars = [...cars];
+        newCars[index][fieldNmae] = value;
+        setCars(cars => [...newCars]);
+    };
     return (
         <div>
             {
-                cars.map(c => <div key={c.key}>
-                    <input placeholder="車型代碼" />
-                    <input placeholder="車型描述" />
+                cars.map((c, index) => <div key={index}>
+                    <input placeholder="車型代碼" value={c.id} onChange={(e) => update("id", index, e.target.value)} />
+                    <input placeholder="車型描述" value={c.desc} onChange={(e) => update("desc", index, e.target.value)} />
                     <button onClick={() => del(c.key)}>刪除</button>
                 </div>
                 )
