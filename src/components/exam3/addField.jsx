@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import useTimers from "./timer";
 function AddField() {
     const [counter, setCounter] = useState(0);
     const [cars, setCars] = useState([]);
@@ -12,8 +13,18 @@ function AddField() {
     let del = (key) => {
         setCars(cars.filter(item => item.key != key));
     };
+
+    let time = useTimers();
+
+    useEffect(() => {
+        console.log(`counter:${counter},cars count:${cars.length},time:${time}`);
+    }, [counter]);
+
+    // debugger;
+
     return (
         <div>
+            {time}<br />
             {
                 cars.map(c => <div key={c.key}>
                     <input placeholder="車型代碼" />
