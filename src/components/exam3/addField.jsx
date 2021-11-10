@@ -13,23 +13,6 @@ function AddField() {
     let del = (key) => {
         setCars(cars.filter(item => item.key != key));
     };
-<<<<<<< HEAD
-    let update = (fieldNmae, index, value) => {
-        let newCars = [...cars];
-        newCars[index][fieldNmae] = value;
-        setCars(cars => [...newCars]);
-    };
-=======
-
-    let time = useTimers();
-
-    useEffect(() => {
-        console.log(`counter:${counter},cars count:${cars.length},time:${time}`);
-    }, [counter]);
-
-    // debugger;
-
->>>>>>> 97220b69ca214f501ae0e197ae915cde7bdd5223
     return (
         <div>
             {time}<br />
