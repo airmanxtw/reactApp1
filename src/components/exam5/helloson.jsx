@@ -1,9 +1,10 @@
 import React from "react";
-function Helloson() {
+const Helloson = React.memo(function Helloson(props) {
     console.log('helloson created!');
     return <div>
-        this is son...
+        this is son...{props.name}
+        <button onClick={props.click}>hello~</button>
     </div>
-}
+});
 
 export default Helloson;
