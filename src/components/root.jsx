@@ -1,12 +1,13 @@
 import React from "react";
-import Hello from "./exam5/hello";
+import TestUi from "./exam6/testui";
+
 class Root extends React.Component {
     constructor() {
         super();
     }
     render() {
         return <div>
-            <Hello />
+            <TestUi></TestUi>
         </div>
     }
 }
