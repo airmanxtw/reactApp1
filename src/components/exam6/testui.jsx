@@ -1,14 +1,21 @@
 import { AppBar, Button, Toolbar } from "@material-ui/core";
 import { ArrowBack, DeleteRounded, DeleteSweepTwoTone } from "@material-ui/icons";
-import React from "react";
+import React, { useReducer } from "react";
 let TestUi = function () {
+    let reducer = (state, type) => {
+        switch (type) {
+            case "add":
+                return state + 1;
+            case "double":
+                return state * 2;
+            default:
+                return state;
+        }
+    };
+    let [ count, dispatch ]= useReducer(reducer, 0);
     return <div>
-        <AppBar position="absolute">
-            <Toolbar>
-                <h1>Hello</h1>
-            </Toolbar>
-        </AppBar>
-        <Button variant="contained" startIcon={<ArrowBack />} >Hello</Button>
+        {count}<br/>
+        <button onClick={()=>{ dispatch("add")} }>test</button>
     </div>
 }
 
