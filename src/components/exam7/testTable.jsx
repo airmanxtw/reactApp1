@@ -1,10 +1,19 @@
-import { Table, TableBody, TableCell, TableHead, TableRow } from "@mui/material";
+import { green } from "@material-ui/core/colors";
+import { Table, TableBody, TableCell, TableHead, TableRow, Button } from "@mui/material";
+import { makeStyles } from "@mui/styles";
 import React from "react";
-import { red } from "@mui/material/colors";
+
 
 let TestTable = function () {
+    const useStyles = makeStyles({
+        root: {
+            color: green[50],
+            background: "black"
+        }
+    });
+    const classes = useStyles();
     return <div>
-        <Table sx={{ maxWidth: 400 }} size="small" className="red">
+        <Table sx={{ maxWidth: 400 }} size="small" >
             <TableHead>
                 <TableRow>
                     <TableCell>
@@ -22,6 +31,7 @@ let TestTable = function () {
                 </TableRow>
             </TableBody>
         </Table>
+        <div className={classes.root}>1234</div>
     </div >
 }
 
