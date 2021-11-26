@@ -1,6 +1,7 @@
 import { green } from "@material-ui/core/colors";
 import { Table, TableBody, TableCell, TableHead, TableRow, Button } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+import { padding } from "@mui/system";
 import React from "react";
 
 
@@ -8,7 +9,8 @@ let TestTable = function () {
     const useStyles = makeStyles({
         root: {
             color: green[50],
-            background: "black"
+            background: "black",
+            padding: 10
         }
     });
     const classes = useStyles();
