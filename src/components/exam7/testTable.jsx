@@ -6,12 +6,14 @@ import React from "react";
 
 
 let TestTable = function () {
+
     const useStyles = makeStyles({
-        root: {
+        OrangeStyle: {
             color: deepOrange.A700,
             background: "white",
             padding: 10
         }
+
     });
 
     return <div>
@@ -33,7 +35,7 @@ let TestTable = function () {
                 </TableRow>
             </TableBody>
         </Table>
-        <div className={useStyles().root}>1234</div>
+        <div className={useStyles().OrangeStyle}>1234</div>
     </div >
 }
 
