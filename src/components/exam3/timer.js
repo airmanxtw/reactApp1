@@ -5,7 +5,7 @@ function useTimers() {
     setInterval(() => {
         setTime((new Date()).toTimeString());
     }, 2000);
-
+    console.log('timer writeer');
     return time;
 }
 

@@ -1,6 +1,6 @@
 import { Container } from "@material-ui/core";
 import React from "react";
-import TestTable from "./exam7/testTable";
+import TestTimer from "./exam7/testTimer";
 
 class Root extends React.Component {
     constructor() {
@@ -9,7 +9,7 @@ class Root extends React.Component {
     render() {
         return <div>
             <Container>
-                <TestTable />
+                <TestTimer/>
             </Container>
         </div>
     }
