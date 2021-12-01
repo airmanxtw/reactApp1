@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import useTest from "./useTest";
+
 let TestTimer = React.memo(function () {
-    let [time, setTime] = useState(0);
-    let timer = useTest();
+    let [time, setTime] = useState({counter:0});
+    useEffect(() => {
+        console.log("effect");
+    }, [time]);
 
     return <div>
-        {timer}
+        {time.counter}
+        <button onClick={()=>{setTime({...time,counter:time.counter+1})}}>按我</button>
     </div>
 });
 
