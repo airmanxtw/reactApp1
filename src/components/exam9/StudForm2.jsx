@@ -1,31 +1,35 @@
 
-import { Card, CardContent, Grid, TextField, Input } from "@material-ui/core";
+import { Card, CardContent, Grid, TextField, Input, Button } from "@material-ui/core";
 import { useForm, Controller } from "react-hook-form";
 import React, { useState } from "react";
 
 function StudForm2() {
-    let [stud, setStud] = useState({
-        studno: '321', studname: 'xnamria'
+    
+    let { control, handleSubmit,setValue,getValues } = useForm({
+        defaultValues:{
+            stud:{
+                studno:'1234',
+                studname:'airmanx'
+            }   
+        }
     });
-    let { control, handleSubmit } = useForm();
 
     return <div>
         <Card>
             <CardContent>
-                <Input value={stud.studno} onInput={(e) =>  setStud({ ...stud, studno: e.value }) }></Input>
+                {getValues("stud.studno")}
+                <Button onClick={()=>setValue("studno","9999")}>click me</Button>
                 <form>
                     <Grid container spacing={2}>
-                        {/* <Grid item xs={12}>
-                            <Controller name="studno"
+                        <Grid item xs={12}>
+                            <Controller name="stud.studno"
                                 control={control}
-                                defaultValue={stud.studno}
                                 render={({ field }) => <Input {...field} />}>
                             </Controller>
-                        </Grid> */}
+                        </Grid>
                         <Grid item xs={12}>
-                            <Controller name="studname"
+                            <Controller name="stud.studname"
                                 control={control}
-                                defaultValue={stud.studname}
                                 render={({ field }) => <Input {...field} />}>
                             </Controller>
                         </Grid>
