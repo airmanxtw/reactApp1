@@ -28,7 +28,7 @@ function StudForm2(props) {
                             <Controller name="studno"
                                 control={control}
                                 rules={{ required: true }}
-                                render={({ field }) => <Input {...field} error={errors.studno && true} />}>
+                                render={({ field }) => <Input  {...field} error={errors.studno && true} />}>
                             </Controller>
 
                         </Grid>
