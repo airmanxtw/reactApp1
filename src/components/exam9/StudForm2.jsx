@@ -15,22 +15,35 @@ function StudForm2(props) {
         let studno = props.studno;
     }, [])
 
-    const onSubmit = data => console.log(data);
+    let test = () => {
+        let x = errors.studno;
+        debugger;
+        return 'hello';
+    }
+
+    const onSubmit = data => {
+        debugger;
+        console.log(data)
+    };
+    const onError = (errors, e) => {
+        debugger;
+        console.log(errors, e)
+    };
 
     return <div>
         <Card>
             <CardContent>
                 {getValues("studno")}
+
                 <Button onClick={() => setValue("studno", "9999")}>click me</Button>
-                <form onSubmit={handleSubmit((data) => { console.log(data) })}>
+                <form onSubmit={handleSubmit(onSubmit,onError)}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <Controller name="studno"
                                 control={control}
-                                rules={{ required: true }}
-                                render={({ field }) => <Input  {...field} error={errors.studno && true} />}>
+                                rules={{ required: true,minLength:10 }}
+                                render={({ field }) => <TextField {...field} error={errors.studno && true} />}>
                             </Controller>
-
                         </Grid>
                         <Grid item xs={12}>
                             <Controller name="studname"
@@ -39,7 +52,7 @@ function StudForm2(props) {
                             </Controller>
                         </Grid>
                     </Grid>
-                    <input type="submit" />
+                    <input type="submit"  />
                 </form>
             </CardContent>
         </Card>
