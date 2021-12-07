@@ -5,30 +5,32 @@ import React, { useEffect, useState } from "react";
 
 function StudForm2(props) {
 
-    let { control, handleSubmit, setValue, getValues } = useForm({
+    let { control, handleSubmit, setValue, getValues, formState: { errors } } = useForm({
         defaultValues: {
-            studno: '1234',
-            studname: 'airmanx'
-
+            studno: '',
+            studname: ''
         }
     });
     useEffect(() => {
         let studno = props.studno;
-        setValue("", { studno: props.studno, studname: 'ccsu' });
     }, [])
+
+    const onSubmit = data => console.log(data);
 
     return <div>
         <Card>
             <CardContent>
                 {getValues("studno")}
                 <Button onClick={() => setValue("studno", "9999")}>click me</Button>
-                <form>
+                <form onSubmit={handleSubmit((data) => { console.log(data) })}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <Controller name="studno"
                                 control={control}
-                                render={({ field }) => <Input {...field} />}>
+                                rules={{ required: true }}
+                                render={({ field }) => <Input {...field} error={errors.studno && true} />}>
                             </Controller>
+
                         </Grid>
                         <Grid item xs={12}>
                             <Controller name="studname"
@@ -37,6 +39,7 @@ function StudForm2(props) {
                             </Controller>
                         </Grid>
                     </Grid>
+                    <input type="submit" />
                 </form>
             </CardContent>
         </Card>
