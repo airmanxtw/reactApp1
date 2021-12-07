@@ -9,7 +9,7 @@ class Root extends React.Component {
     render() {
         return <div>
             <Container>
-                <StudForm2 />
+                <StudForm2 studno="A12345" />
             </Container>
         </div>
     }
