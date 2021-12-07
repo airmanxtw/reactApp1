@@ -27,6 +27,10 @@ function StudForm2(props) {
     };
     const onError = (errors, e) => {
         debugger;
+        let t={};
+        let t2=t?.studno;
+        debugger;
+
         console.log(errors, e)
     };
 
