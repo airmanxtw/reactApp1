@@ -22,17 +22,21 @@ function StudForm2(props) {
     }
 
     const onSubmit = data => {
-        debugger;
+        //debugger;
         console.log(data)
     };
     const onError = (errors, e) => {
-        debugger;
+        //debugger;
         let t={};
         let t2=t?.studno;
-        debugger;
+        //debugger;
 
         console.log(errors, e)
     };
+
+    const check1=(errors)=>{
+        return !!errors.studno?'請填寫':' ';
+    }
 
     return <div>
         <Card>
@@ -46,7 +50,8 @@ function StudForm2(props) {
                             <Controller name="studno"
                                 control={control}
                                 rules={{ required: true,minLength:10 }}
-                                render={({ field }) => <TextField {...field} error={errors.studno && true} />}>
+                                render={({ field }) => <TextField {...field} error={errors.studno && true} margin="normal" helperText={check1(errors)}/>}
+                                >
                             </Controller>
                         </Grid>
                         <Grid item xs={12}>
