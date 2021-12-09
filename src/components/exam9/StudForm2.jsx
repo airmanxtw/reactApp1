@@ -2,6 +2,7 @@
 import { Card, CardContent, Grid, TextField, Input, Button } from "@material-ui/core";
 import { useForm, Controller } from "react-hook-form";
 import React, { useEffect, useState } from "react";
+import { red } from "@material-ui/core/colors";
 
 function StudForm2(props) {
 
@@ -27,15 +28,19 @@ function StudForm2(props) {
     };
     const onError = (errors, e) => {
         //debugger;
-        let t={};
-        let t2=t?.studno;
+        let t = {};
+        let t2 = t?.studno;
         //debugger;
 
         console.log(errors, e)
     };
 
-    const check1=(errors)=>{
-        return !!errors.studno?'請填寫':' ';
+    const theme = {
+        color: red,
+    }
+
+    const check1 = (errors) => {
+        return !!errors.studno ? '請填寫' : ' ';
     }
 
     return <div>
@@ -43,15 +48,18 @@ function StudForm2(props) {
             <CardContent>
                 {getValues("studno")}
 
+
                 <Button onClick={() => setValue("studno", "9999")}>click me</Button>
-                <form onSubmit={handleSubmit(onSubmit,onError)}>
+                <div>hello color</div>
+
+                <form onSubmit={handleSubmit(onSubmit, onError)}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <Controller name="studno"
                                 control={control}
-                                rules={{ required: true,minLength:10 }}
-                                render={({ field }) => <TextField {...field} error={errors.studno && true} margin="normal" helperText={check1(errors)}/>}
-                                >
+                                rules={{ required: true, minLength: 10 }}
+                                render={({ field }) => <TextField {...field} error={errors.studno && true} margin="normal" helperText={check1(errors)} />}
+                            >
                             </Controller>
                         </Grid>
                         <Grid item xs={12}>
@@ -61,7 +69,7 @@ function StudForm2(props) {
                             </Controller>
                         </Grid>
                     </Grid>
-                    <input type="submit"  />
+                    <input type="submit" />
                 </form>
             </CardContent>
         </Card>
