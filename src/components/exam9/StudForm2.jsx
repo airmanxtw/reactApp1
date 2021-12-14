@@ -2,6 +2,7 @@
 import { Card, CardContent, Grid, TextField, Input, Button } from "@material-ui/core";
 import { useForm, Controller } from "react-hook-form";
 import React, { useEffect, useState } from "react";
+import { Alert } from "@mui/material";
 
 function StudForm2(props) {
 
@@ -33,6 +34,9 @@ function StudForm2(props) {
 
         console.log(errors, e)
     };
+    const ser={
+        severity:"error"
+    }
 
     return <div>
         <Card>
@@ -46,7 +50,7 @@ function StudForm2(props) {
                             <Controller name="studno"
                                 control={control}
                                 rules={{ required: true,minLength:10 }}
-                                render={({ field }) => <TextField {...field} error={errors.studno && true} />}>
+                                render={({ field }) => <TextField  {...field} error={errors.studno && true} />}>
                             </Controller>
                         </Grid>
                         <Grid item xs={12}>
@@ -54,6 +58,9 @@ function StudForm2(props) {
                                 control={control}
                                 render={({ field }) => <Input {...field} />}>
                             </Controller>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <Alert {...ser}>這是MUI</Alert>
                         </Grid>
                     </Grid>
                     <input type="submit"  />
